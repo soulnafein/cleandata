@@ -31,11 +31,11 @@ Xsy = cbind(X, subject, activity_labels[y$V1, 'name'])
 names(Xsy) = c(as.character(features[all_features, 'name']), 'subject', 'activity')
 
 # write clean data 
-write.csv(Xsy, 'clean.csv')
+write.table(Xsy, 'clean.txt', row.name=FALSE)
 
 # calculate and write mean data
 clean_mean = aggregate(Xsy[,1:79], by=list(subject=Xsy$subject, activity=Xsy$activity), FUN=mean)
-write.csv(clean_mean, 'clean_mean.csv')
+write.table(clean_mean, 'clean_mean.txt', row.name=FALSE)
 
 
 
